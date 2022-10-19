@@ -1,17 +1,12 @@
-import { AddFriendForm } from "./addFriendForm";
+import { AddFriendForm } from "./AddFriendForm";
+import { FriendCard } from "./FriendCard";
 
 
-const friends = [
-    { firstName: "John", lastName: "Smith", age: 32, city: "Kaunas" },
-    { firstName: "Maria", lastName: "Hudghes", age: 28, city: "Siauliai" },
-    { firstName: "Thomas", lastName: "Muiller", age: 33, city: "Vilnius" },
-  ];
-  
 export function App() {
     return (
         <>
         <AddFriendForm />
-        
+        <FriendCard />
         
         </>
     )
