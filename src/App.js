@@ -1,13 +1,54 @@
-import { AddFriendForm } from "./AddFriendForm";
-import { FriendCard } from "./FriendCard";
+import React from "react";
 
+const friends = [
+  { firstName: "John", lastName: "Smith", age: 32, city: "Kaunas" },
+  { firstName: "Maria", lastName: "Hudghes", age: 28, city: "Siauliai" },
+  { firstName: "Thomas", lastName: "Muiller", age: 33, city: "Vilnius" },
+];
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  alert("Friend added to the list!");
+};
+
+function FriendCard() {
+  return friends.map((friend) => (
+    <div className="FriendCard">
+      <p>First Name: {friend.firstName}</p>
+      <p>Last Name: {friend.lastName}</p>
+      <p>Age: {friend.age}</p>
+      <p>City: {friend.city}</p>
+      <button>Delete</button>
+    </div>
+  ));
+}
 
 export function App() {
-    return (
-        <>
-        <AddFriendForm />
-        <FriendCard />
-        
-        </>
-    )
+  return (
+    <>
+      <div class="wrapper">
+        <form onSubmit={handleSubmit}>
+          <fieldset>
+            <legend>Add New Friend</legend>
+            <input placeholder="First Name" />
+            <input placeholder="Last Name" />
+            <input placeholder="Age" />
+            <input placeholder="City" />
+            <button>Add Friend</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="friends-container">
+        {friends.map((friend) => (
+          <div className="FriendCard">
+            <p>First Name: {friend.firstName}</p>
+            <p>Last Name: {friend.lastName}</p>
+            <p>Age: {friend.age}</p>
+            <p>City: {friend.city}</p>
+            <button>Delete</button>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 }
