@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 const friends = [
   { firstName: "John", lastName: "Smith", age: 32, city: "Kaunas" },
@@ -10,18 +11,6 @@ const handleSubmit = (e) => {
   e.preventDefault();
   alert("Friend added to the list!");
 };
-
-function FriendCard() {
-  return friends.map((friend) => (
-    <div className="FriendCard">
-      <p>First Name: {friend.firstName}</p>
-      <p>Last Name: {friend.lastName}</p>
-      <p>Age: {friend.age}</p>
-      <p>City: {friend.city}</p>
-      <button>Delete</button>
-    </div>
-  ));
-}
 
 export function App() {
   return (
