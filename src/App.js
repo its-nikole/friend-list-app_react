@@ -19,7 +19,9 @@ export function App() {
     e.preventDefault();
     alert("Friend added to the list!");
   
-    const newFriend = { firstName, lastName, age, city };
+    const newFriend = { firstName: formState.firstName, lastName: formState.lastName, age: formState.age, city: formState.city };
+
+    setFriendsState([...friendsState, newFriend])
   
     console.log(newFriend);
   };
@@ -50,7 +52,7 @@ export function App() {
       </div>
       <div className="friends-container">
         {friendsState.map((friend) => (
-          <div className="FriendCard" key={friend.firstName}>
+          <div className="FriendCard" key={friend.id}>
             <p>First Name: {friend.firstName}</p>
             <p>Last Name: {friend.lastName}</p>
             <p>Age: {friend.age}</p>
