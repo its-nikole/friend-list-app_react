@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 
 const friends = [
-  { firstName: "John", lastName: "Smith", age: 32, city: "Kaunas" },
-  { firstName: "Maria", lastName: "Hudghes", age: 28, city: "Siauliai" },
-  { firstName: "Thomas", lastName: "Muiller", age: 33, city: "Vilnius" },
+  { id: "23", firstName: "John", lastName: "Smith", age: 32, city: "Kaunas" },
+  { id: "43", firstName: "Maria", lastName: "Hudghes", age: 28, city: "Siauliai" },
+  { id: "56", firstName: "Thomas", lastName: "Muiller", age: 33, city: "Vilnius" },
 ];
 
 const initialFormData = { firstName: "", lastName: "", age: "", city: "" };
@@ -19,7 +19,7 @@ export function App() {
     e.preventDefault();
     alert("Friend added to the list!");
   
-    const newFriend = { firstName: formState.firstName, lastName: formState.lastName, age: formState.age, city: formState.city };
+    const newFriend = { id: String(Math.random()), firstName: formState.firstName, lastName: formState.lastName, age: formState.age, city: formState.city };
 
     setFriendsState([...friendsState, newFriend])
   
