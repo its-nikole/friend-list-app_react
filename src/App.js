@@ -30,9 +30,6 @@ export function App() {
     e.preventDefault();
     alert("Friend added to the list!");
 
-    e.target.reset()
-    console.log(e.target)
-
     const newFriend = {
       id: String(Math.random()),
       firstName: formState.firstName,
@@ -42,6 +39,7 @@ export function App() {
     };
 
     setFriendsState([...friendsState, newFriend]);
+    setFormState(initialFormData);
 
     console.log(newFriend);
   };
