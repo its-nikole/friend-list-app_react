@@ -26,6 +26,13 @@ export function App() {
     console.log(newFriend);
   };
 
+  const onChangeFunc = (e) => {
+    const inputValue = e.target.value;
+    const inputId = e.target.id;
+
+    setFormState({...formState, [inputId]: inputValue});
+  }
+
   return (
     <>
       <div className="wrapper">
@@ -36,16 +43,16 @@ export function App() {
               id="firstName"
               value={formState.firstName}
               placeholder="First Name"
-              onChange={(e) => setFormState(e.target.value, e.target.id)}
+              onChange={onChangeFunc}
             />
             <input
               id="lastName"
               value={formState.lastName}
               placeholder="Last Name"
-              onChange={(e) => setFormState(e.target.value, e.target.id)}
+              onChange={onChangeFunc}
             />
-            <input id="age" value={formState.age} placeholder="Age" onChange={(e) => setFormState(e.target.value, e.target.id)}/>
-            <input id="city" value={formState.city} placeholder="City" onChange={(e) => setFormState(e.target.value, e.target.id)}/>
+            <input id="age" value={formState.age} placeholder="Age" onChange={onChangeFunc}/>
+            <input id="city" value={formState.city} placeholder="City" onChange={onChangeFunc}/>
             <button>Add Friend</button>
           </fieldset>
         </form>
