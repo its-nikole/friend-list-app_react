@@ -3,14 +3,25 @@ import { useState } from "react";
 
 const friends = [
   { id: "23", firstName: "John", lastName: "Smith", age: 32, city: "Kaunas" },
-  { id: "43", firstName: "Maria", lastName: "Hudghes", age: 28, city: "Siauliai" },
-  { id: "56", firstName: "Thomas", lastName: "Muiller", age: 33, city: "Vilnius" },
+  {
+    id: "43",
+    firstName: "Maria",
+    lastName: "Hudghes",
+    age: 28,
+    city: "Siauliai",
+  },
+  {
+    id: "56",
+    firstName: "Thomas",
+    lastName: "Muiller",
+    age: 33,
+    city: "Vilnius",
+  },
 ];
 
 const initialFormData = { firstName: "", lastName: "", age: "", city: "" };
 
 export function App() {
-
   const [formState, setFormState] = useState(initialFormData);
 
   const [friendsState, setFriendsState] = useState(friends);
@@ -18,25 +29,34 @@ export function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Friend added to the list!");
-  
-    const newFriend = { id: String(Math.random()), firstName: formState.firstName, lastName: formState.lastName, age: formState.age, city: formState.city };
 
-    setFriendsState([...friendsState, newFriend])
-  
+    e.target.reset()
+    console.log(e.target)
+
+    const newFriend = {
+      id: String(Math.random()),
+      firstName: formState.firstName,
+      lastName: formState.lastName,
+      age: formState.age,
+      city: formState.city,
+    };
+
+    setFriendsState([...friendsState, newFriend]);
+
     console.log(newFriend);
   };
 
   const handleDelete = (e) => {
     const filteredFriends = friends.filter((friend) => friend.id !== e);
     setFriendsState(filteredFriends);
-  }
+  };
 
   const onChangeFunc = (e) => {
     const inputValue = e.target.value;
     const inputId = e.target.id;
 
-    setFormState({...formState, [inputId]: inputValue});
-  }
+    setFormState({ ...formState, [inputId]: inputValue });
+  };
 
   return (
     <>
@@ -49,15 +69,29 @@ export function App() {
               value={formState.firstName}
               placeholder="First Name"
               onChange={onChangeFunc}
+              required
             />
             <input
               id="lastName"
               value={formState.lastName}
               placeholder="Last Name"
               onChange={onChangeFunc}
+              required
             />
-            <input id="age" value={formState.age} placeholder="Age" onChange={onChangeFunc}/>
-            <input id="city" value={formState.city} placeholder="City" onChange={onChangeFunc}/>
+            <input
+              id="age"
+              value={formState.age}
+              placeholder="Age"
+              onChange={onChangeFunc}
+              required
+            />
+            <input
+              id="city"
+              value={formState.city}
+              placeholder="City"
+              onChange={onChangeFunc}
+              required
+            />
             <button>Add Friend</button>
           </fieldset>
         </form>
