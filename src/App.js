@@ -9,15 +9,20 @@ const friends = [
 
 const initialFormData = { firstName: "", lastName: "", age: "", city: "" };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  alert("Friend added to the list!");
-};
-
 export function App() {
+
   const [formState, setFormState] = useState(initialFormData);
 
   const [friendsState, setFriendsState] = useState(friends);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Friend added to the list!");
+  
+    const newFriend = { firstName, lastName, age, city };
+  
+    console.log(newFriend);
+  };
 
   return (
     <>
