@@ -26,6 +26,11 @@ export function App() {
     console.log(newFriend);
   };
 
+  const handleDelete = (e) => {
+    const filteredFriends = friends.filter((friend) => friend.id !== e);
+    setFriendsState(filteredFriends);
+  }
+
   const onChangeFunc = (e) => {
     const inputValue = e.target.value;
     const inputId = e.target.id;
@@ -64,7 +69,7 @@ export function App() {
             <p>Last Name: {friend.lastName}</p>
             <p>Age: {friend.age}</p>
             <p>City: {friend.city}</p>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
           </div>
         ))}
       </div>
