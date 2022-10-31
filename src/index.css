@@ -1,4 +1,9 @@
-.FriendCard {
+form {
+    outline: none;
+    background-color: red;
+}
+
+.friend-card {
     display: flex;
     flex-direction: column;
     justify-content: center;

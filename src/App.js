@@ -58,7 +58,7 @@ export function App() {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="form-wrapper">
         <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Add New Friend</legend>
@@ -96,7 +96,7 @@ export function App() {
       </div>
       <div className="friends-container">
         {friendsState.map((friend) => (
-          <div className="FriendCard" key={friend.id}>
+          <div className="friend-card" key={friend.id}>
             <p>First Name: {friend.firstName}</p>
             <p>Last Name: {friend.lastName}</p>
             <p>Age: {friend.age}</p>
